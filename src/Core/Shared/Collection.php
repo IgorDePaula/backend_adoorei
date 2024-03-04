@@ -26,9 +26,9 @@ class Collection implements IteratorAggregate, Countable, ArrayAccess, Arrayable
         $this->items = $items;
     }
 
-    public static function make(array $items = []): Collection
+    public static function make(array $items = []): static
     {
-        return new self($items);
+        return new static($items);
     }
 
     public function first(): mixed

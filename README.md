@@ -26,3 +26,7 @@ Endpoints
 ---------
 
 `GET /api/products ` Retorna os produtos constantes no banco de dados.
+
+`GET /api/sales ` Retorna as vendas constantes no banco de dados.
+
+`POST /api/sales ` Cria uma venda no banco de dados.

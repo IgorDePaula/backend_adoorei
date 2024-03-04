@@ -26,7 +26,7 @@ class SaleEntity implements EntityInterface, ArrayableInterface
             'id' => $this->getId(),
             'amount' => $this->getAmount(),
             'products' => $this->getProducts()->toArray(),
-            'status' => $this->getStatus()?->value,
+            'status' => $this->getStatus()?->name,
         ];
     }
 

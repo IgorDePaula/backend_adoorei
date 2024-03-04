@@ -6,7 +6,6 @@ use Core\Domain\BuilderInterface;
 use Core\Domain\EntityInterface;
 use Core\Shared\Collection;
 use Sales\Domain\Entity\SaleEntity;
-use Sales\Domain\SaleStatusEnum;
 use Sales\Shared\ProductCollection;
 
 class SaleBuilder implements BuilderInterface
@@ -31,7 +30,7 @@ class SaleBuilder implements BuilderInterface
         return $this;
     }
 
-    public function withStatus(SaleStatusEnum $status): BuilderInterface
+    public function withStatus(string $status): BuilderInterface
     {
         $this->status = $status;
         return $this;

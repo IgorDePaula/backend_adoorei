@@ -27,9 +27,9 @@ class CreateSaleController
             $class = get_class($result->getValue());
             return match ($class) {
                 InfrastructureError::class => new JsonResponse(['success' => false, 'data' => $result->getValue()->getMessage()], JsonResponse::HTTP_NOT_ACCEPTABLE),
-                default => new JsonResponse(['success' => false, 'data' => $result->getValue()->getMessage()], JsonResponse::HTTP_INTERNAL_SERVER_ERROR)
+                default => new JsonResponse(['success' => false, 'data' => $result->getValue()], JsonResponse::HTTP_INTERNAL_SERVER_ERROR)
             };
         }
-        return new JsonResponse(['success' => true, 'data' => $result->getValue()->toArray()], JsonResponse::HTTP_CREATED);
+        return new JsonResponse(['success' => true, 'data' => $result->getValue()->getId()], JsonResponse::HTTP_CREATED);
     }
 }

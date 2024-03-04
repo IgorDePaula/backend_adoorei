@@ -34,7 +34,7 @@ class SaleRepository implements SaleRepositoryInterface
 
     public function create(): EntityInterface
     {
-        $register = $this->model->create(['status' => SaleStatusEnum::OPEN, 'amount' => 0]);
+        $register = $this->model->create(['status' => SaleStatusEnum::OPEN->name, 'amount' => 0]);
         return $this->director->make($register->toArray());
     }
 

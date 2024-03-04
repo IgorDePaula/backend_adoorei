@@ -5,14 +5,14 @@ namespace Sales\Infrastructure\Providers;
 use App\Models\Sale;
 use Core\Application\ActionFactory;
 use Core\Domain\DirectorInterface;
-use Core\Infrastructure\Repository\RepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Sales\Application\ActionEnum;
-use Sales\Application\Actions\ListSale;
+use Sales\Application\Actions\{CreateSale, ListSale};
 use Sales\Domain\Director\SaleDirector;
-use Sales\Infrastructure\Http\Controllers\ListSaleController;
+use Sales\Infrastructure\Http\Controllers\{CreateSaleController, ListSaleController};
+use Sales\Infrastructure\Repository\Interfaces\SaleRepositoryInterface;
 use Sales\Infrastructure\Repository\SaleRepository;
 
 class SaleProvider extends ServiceProvider
@@ -31,7 +31,7 @@ class SaleProvider extends ServiceProvider
             ->give(fn($app) => new ActionFactory(ActionEnum::class, $app));
 
         $this->app->when(ListSale::class)
-            ->needs(RepositoryInterface::class)
+            ->needs(SaleRepositoryInterface::class)
             ->give(fn($app) => $app->make(SaleRepository::class));
 
         $this->app->when(SaleRepository::class)
@@ -41,5 +41,13 @@ class SaleProvider extends ServiceProvider
         $this->app->when(SaleRepository::class)
             ->needs(DirectorInterface::class)
             ->give(SaleDirector::class);
+
+        $this->app->when(CreateSaleController::class)
+            ->needs(ActionFactory::class)
+            ->give(fn($app) => new ActionFactory(ActionEnum::class, $app));
+
+        $this->app->when(CreateSale::class)
+            ->needs(SaleRepositoryInterface::class)
+            ->give(fn($app) => $app->make(SaleRepository::class));
     }
 }

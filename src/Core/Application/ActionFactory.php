@@ -3,9 +3,9 @@
 namespace Core\Application;
 
 use ArrayObject;
+use Core\Shared\Result;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Database\Eloquent\Model;
-use VirtuaSec\Core\Shared\Result;
 
 // @codeCoverageIgnoreStart
 class ActionFactory

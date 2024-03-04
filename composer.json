@@ -30,7 +30,8 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "Core\\": "src/Core",
-            "Product\\": "src/Product"
+            "Product\\": "src/Product",
+            "Sales\\": "src/Sales"
         }
     },
     "autoload-dev": {

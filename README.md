@@ -13,8 +13,7 @@ Para executar o projeto utilize os seguintes comandos `make`:
 | bash             | Inicia uma sessao bash                                                                           |
 | build            | Constroi os containers                                                                           |
 | clear            | Limpa os caches do laravel                                                                       |
-| composer-install | Instala as dependencias do                                                                       | composer                      
-| coverage-html    | Executa os testes com                                                                            | cobertura                     
+| composer-install | Instala as dependencias do                                                                       | composer                       
 | down             | Para e remove containers                                                                         |
 | help             | Mostra o menu de ajuda                                                                           |
 | logs             | Visualiza os logs do                                                                             | container                     

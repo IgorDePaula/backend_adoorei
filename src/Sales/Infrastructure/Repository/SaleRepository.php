@@ -3,8 +3,10 @@
 namespace Sales\Infrastructure\Repository;
 
 use Core\Domain\DirectorInterface;
+use Core\Domain\EntityInterface;
 use Core\Infrastructure\Repository\RepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
+use Sales\Domain\SaleStatusEnum;
 use Sales\Shared\SaleCollection;
 
 class SaleRepository implements RepositoryInterface
@@ -28,6 +30,12 @@ class SaleRepository implements RepositoryInterface
         }
 
         return $collection;
+    }
+
+    public function create(): EntityInterface
+    {
+        $register = $this->model->create(['status' => SaleStatusEnum::OPEN, 'amount' => 0]);
+        return $this->director->make($register->toArray());
     }
 
 }

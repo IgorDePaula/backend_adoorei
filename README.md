@@ -21,3 +21,8 @@ Para executar o projeto utilize os seguintes comandos `make`:
 | migrate          | Executa a migracao do banco                                                                      |
 | test             | Executa os testes da apicacao sem cobertura. Use a opcao 'FILTER' para rodar um teste especifico |
 | up               | Inicia o container                                                                               |
+
+Endpoints
+---------
+
+`GET /api/products ` Retorna os produtos constantes no banco de dados.

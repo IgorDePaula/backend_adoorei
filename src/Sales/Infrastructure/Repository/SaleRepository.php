@@ -4,12 +4,12 @@ namespace Sales\Infrastructure\Repository;
 
 use Core\Domain\DirectorInterface;
 use Core\Domain\EntityInterface;
-use Core\Infrastructure\Repository\RepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 use Sales\Domain\SaleStatusEnum;
+use Sales\Infrastructure\Repository\Interfaces\SaleRepositoryInterface;
 use Sales\Shared\SaleCollection;
 
-class SaleRepository implements RepositoryInterface
+class SaleRepository implements SaleRepositoryInterface
 {
     public function __construct(
         private readonly Model             $model,

@@ -6,11 +6,12 @@ use Core\Domain\BuilderInterface;
 use Core\Domain\EntityInterface;
 use Core\Shared\Collection;
 use Sales\Domain\Entity\SaleEntity;
+use Sales\Domain\SaleStatusEnum;
 use Sales\Shared\ProductCollection;
 
 class SaleBuilder implements BuilderInterface
 {
-    private $id, $amount, $products;
+    private $id, $amount, $products, $status;
 
     public function withId(int $id): BuilderInterface
     {
@@ -27,6 +28,12 @@ class SaleBuilder implements BuilderInterface
     public function withProducts(ProductCollection $products): BuilderInterface
     {
         $this->products = $products;
+        return $this;
+    }
+
+    public function withStatus(SaleStatusEnum $status): BuilderInterface
+    {
+        $this->status = $status;
         return $this;
     }
 

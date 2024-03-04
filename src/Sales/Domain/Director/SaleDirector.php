@@ -15,6 +15,7 @@ class SaleDirector implements DirectorInterface
             'id' => 'withId',
             'amount' => 'withAmount',
             'product' => 'withProduct',
+            'status' => 'withStatus',
         ];
         $builder = new SaleBuilder();
         foreach ($methods as $key => $method) {

@@ -4,6 +4,7 @@ namespace Sales\Domain\Entity;
 
 use Core\Domain\EntityInterface;
 use Core\Shared\ArrayableInterface;
+use Sales\Domain\SaleStatusEnum;
 use Sales\Shared\ProductCollection;
 
 // @codeCoverageIgnoreStart
@@ -12,7 +13,8 @@ class SaleEntity implements EntityInterface, ArrayableInterface
     public function __construct(
         private ?int               $id = null,
         private ?float             $amount = null,
-        private ?ProductCollection $products = null
+        private ?ProductCollection $products = null,
+        private ?SaleStatusEnum    $status = null,
     )
     {
 
@@ -23,11 +25,12 @@ class SaleEntity implements EntityInterface, ArrayableInterface
         return [
             'id' => $this->getId(),
             'amount' => $this->getAmount(),
-            'products' => $this->getProducts()->toArray()
+            'products' => $this->getProducts()->toArray(),
+            'status' => $this->getStatus()?->value,
         ];
     }
 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -40,6 +43,11 @@ class SaleEntity implements EntityInterface, ArrayableInterface
     public function getProducts(): ?ProductCollection
     {
         return $this->products;
+    }
+
+    public function getStatus(): ?SaleStatusEnum
+    {
+        return $this->status;
     }
 }
 // @codeCoverageIgnoreEnd

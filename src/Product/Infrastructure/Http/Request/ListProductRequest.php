@@ -7,7 +7,7 @@ namespace Product\Infrastructure\Http\Request;
 use Core\Application\AbstractDto;
 use Core\Infrastructure\Http\Request\RequestInterface;
 use Illuminate\Foundation\Http\FormRequest;
-use Product\Application\Dto\ListProductDto;
+use Sales\Application\Dto\ListSaleDto;
 
 class ListProductRequest extends FormRequest implements RequestInterface
 {
@@ -18,7 +18,7 @@ class ListProductRequest extends FormRequest implements RequestInterface
 
     public function toDto(): AbstractDto
     {
-        return new ListProductDto();
+        return new ListSaleDto();
     }
 }
 // @codeCoverageIgnoreEnd
